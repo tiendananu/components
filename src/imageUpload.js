@@ -10,9 +10,7 @@ import CircularProgress from '@material-ui/core/CircularProgress'
 import { green } from '@material-ui/core/colors'
 import { makeStyles } from '@material-ui/core/styles'
 import Grid from '@material-ui/core/Grid'
-import { useTranslation } from 'react-i18next'
 
-import config from '../config'
 const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
@@ -37,19 +35,16 @@ const useStyles = makeStyles((theme) => ({
     marginLeft: -12
   }
 }))
-
-const cloudinaryUrl = `https://api.cloudinary.com/v1_1/${config.get(
-  'core.cloudinary.cloud_name'
-)}/upload`
-const upload = (files) =>
+// config.get('core.cloudinary.cloud_name')
+const upload = (files, cloudName) =>
   Promise.all(
     files.map((file) => {
       const form = new FormData()
       form.set('file', file)
       form.set('multiple', true)
-      form.set('upload_preset', config.get('core.cloudinary.cloud_name'))
+      form.set('upload_preset', cloudName)
 
-      return fetch(cloudinaryUrl, {
+      return fetch(`https://api.cloudinary.com/v1_1/${cloudName}/upload`, {
         method: 'POST',
         body: form
       })
@@ -58,15 +53,22 @@ const upload = (files) =>
     })
   )
 
-export default ({ id, values, children, handleChange, multi }) => {
+export default ({
+  id,
+  values,
+  children,
+  handleChange,
+  multi,
+  cloudName,
+  i18n
+}) => {
   const [loading, setLoading] = React.useState()
   const classes = useStyles()
-  const { t } = useTranslation()
 
   const hasValue =
     (multi && get(values, `${id}.length`)) || (!multi && get(values, id))
   return (
-    <>
+    <React.Fragment>
       <input
         style={{ display: 'none' }}
         accept="image/*"
@@ -76,7 +78,7 @@ export default ({ id, values, children, handleChange, multi }) => {
         multiple={multi}
         onChange={async ({ target: { files } }) => {
           setLoading(true)
-          const uploadedFiles = await upload(Array.from(files))
+          const uploadedFiles = await upload(Array.from(files), cloudName)
           const currentValue = values[id] || []
           let value =
             multi && currentValue instanceof Array
@@ -101,7 +103,7 @@ export default ({ id, values, children, handleChange, multi }) => {
               }
             >
               <RemoveIcon />
-              {t('Delete')}
+              {i18n.t('Delete')}
             </Button>
           </Grid>
           {multi && (
@@ -114,7 +116,7 @@ export default ({ id, values, children, handleChange, multi }) => {
                   disabled={loading}
                 >
                   <AddIcon />
-                  {t('Add other')}
+                  {i18n.t('Add other')}
                 </Button>
                 {loading && (
                   <CircularProgress
@@ -137,7 +139,7 @@ export default ({ id, values, children, handleChange, multi }) => {
               disabled={loading}
             >
               <ImageIcon />
-              {t('Add an image')}
+              {i18n.t('Add an image')}
             </Button>
             {loading && (
               <CircularProgress size={24} className={classes.buttonProgress} />
@@ -145,6 +147,6 @@ export default ({ id, values, children, handleChange, multi }) => {
           </label>
         </div>
       )}
-    </>
+    </React.Fragment>
   )
 }

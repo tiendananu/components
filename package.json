@@ -1,6 +1,6 @@
 {
   "name": "@jibadano/components",
-  "version": "0.1.14",
+  "version": "0.1.17",
   "description": "Custom Material UI React components",
   "author": "Juan Badano",
   "license": "MIT",
@@ -12,7 +12,7 @@
   },
   "scripts": {
     "dev": "cd storybook && npm start",
-    "build": "microbundle-crl --no-compress --format modern,cjs",
+    "build": "rm -rf dist && microbundle-crl --no-compress --format modern,cjs",
     "start": "microbundle-crl watch --no-compress --format modern,cjs",
     "prepare": "run-s build",
     "test": "run-s test:unit test:lint test:build",
@@ -20,7 +20,8 @@
     "test:lint": "eslint .",
     "test:unit": "cross-env CI=1 react-scripts test --env=jsdom",
     "test:watch": "react-scripts test --env=jsdom",
-    "predeploy": "cd example && npm install && npm run build",
+    "prepublish": "npm run build",
+    "predeploy": "cd storybook && npm install && npm run build",
     "deploy": "gh-pages -d example/build"
   },
   "peerDependencies": {
@@ -55,8 +56,6 @@
     "@material-ui/icons": "^4.9.1",
     "@material-ui/lab": "^4.0.0-alpha.56",
     "clsx": "^1.1.1",
-    "i18next": "^19.7.0",
-    "lodash": "^4.17.20",
-    "react-i18next": "^11.7.3"
+    "lodash": "^4.17.20"
   }
 }
