@@ -1,17 +1,11 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import CssBaseline from "@material-ui/core/CssBaseline";
-import { ThemeProvider } from "@material-ui/core/styles";
-import App from "./App";
-import theme from "./theme";
-
-export default () => "HOLA";
-
-/* ReactDOM.render(
-  <ThemeProvider theme={theme}>
-    <CssBaseline />
-    <App />
-  </ThemeProvider>,
-  document.querySelector("#root")
-);
- */
+export { default as TextField } from './textField'
+export { default as Checkbox } from './checkbox'
+export { default as Language } from './language'
+export { default as ListField } from './listField'
+export { default as Password } from './password'
+export { default as Price } from './price'
+export { default as Section } from './section'
+export { default as Select } from './select'
+export { default as slider } from './slider'
+export { default as Switch } from './switch'
+export { default as Toogle } from './toggle'

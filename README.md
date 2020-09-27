@@ -1,25 +1,30 @@
-# Create React App example
+# components3
 
-## How to use
+> Made with create-react-library
 
-Download the example [or clone the repo](https://github.com/mui-org/material-ui):
+[![NPM](https://img.shields.io/npm/v/components3.svg)](https://www.npmjs.com/package/components3) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
-```sh
-curl https://codeload.github.com/mui-org/material-ui/tar.gz/master | tar -xz --strip=2 material-ui-master/examples/create-react-app
-cd create-react-app
+## Install
+
+```bash
+npm install --save components3
 ```
 
-Install it and run:
+## Usage
 
-```sh
-npm install
-npm start
+```jsx
+import React, { Component } from 'react'
+
+import MyComponent from 'components3'
+import 'components3/dist/index.css'
+
+class Example extends Component {
+  render() {
+    return <MyComponent />
+  }
+}
 ```
 
-or:
+## License
 
-[![Edit on CodeSandbox](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/github/mui-org/material-ui/tree/master/examples/create-react-app)
-
-## The idea behind the example
-
-This example demonstrates how you can use [Create React App](https://github.com/facebookincubator/create-react-app).
+MIT © [Juan Badano](https://github.com/Juan Badano)
