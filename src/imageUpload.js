@@ -3,38 +3,11 @@ import get from 'lodash/get'
 import Button from '@material-ui/core/Button'
 import ImageIcon from '@material-ui/icons/Image'
 import AddIcon from '@material-ui/icons/Add'
-
 import RemoveIcon from '@material-ui/icons/Delete'
 import fetch from 'isomorphic-unfetch'
 import CircularProgress from '@material-ui/core/CircularProgress'
-import { green } from '@material-ui/core/colors'
-import { makeStyles } from '@material-ui/core/styles'
 import Grid from '@material-ui/core/Grid'
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    display: 'flex',
-    alignItems: 'center'
-  },
-  wrapper: {
-    position: 'relative'
-  },
-  buttonSuccess: {
-    backgroundColor: green[500],
-    '&:hover': {
-      backgroundColor: green[700]
-    }
-  },
-
-  buttonProgress: {
-    color: green[500],
-    position: 'absolute',
-    top: '50%',
-    left: '50%',
-    marginTop: -12,
-    marginLeft: -12
-  }
-}))
 // config.get('core.cloudinary.cloud_name')
 const upload = (files, cloudName) =>
   Promise.all(
@@ -63,7 +36,6 @@ export default ({
   i18n
 }) => {
   const [loading, setLoading] = React.useState()
-  const classes = useStyles()
 
   const hasValue =
     (multi && get(values, `${id}.length`)) || (!multi && get(values, id))
@@ -108,7 +80,7 @@ export default ({
           </Grid>
           {multi && (
             <Grid item xs={9}>
-              <label className={classes.wrapper} htmlFor="inputfile">
+              <label styles={{ position: 'relative' }} htmlFor="inputfile">
                 <Button
                   color="secondary"
                   fullWidth
@@ -121,7 +93,13 @@ export default ({
                 {loading && (
                   <CircularProgress
                     size={24}
-                    className={classes.buttonProgress}
+                    styles={{
+                      position: 'absolute',
+                      top: '50%',
+                      left: '50%',
+                      marginTop: -12,
+                      marginLeft: -12
+                    }}
                   />
                 )}
               </label>
@@ -130,7 +108,7 @@ export default ({
         </Grid>
       ) : (
         <div>
-          <label className={classes.wrapper} htmlFor="inputfile">
+          <label styles={{ position: 'relative' }} htmlFor="inputfile">
             <Button
               fullWidth
               variant="outlined"
@@ -142,7 +120,16 @@ export default ({
               {i18n.t('Add an image')}
             </Button>
             {loading && (
-              <CircularProgress size={24} className={classes.buttonProgress} />
+              <CircularProgress
+                size={24}
+                styles={{
+                  position: 'absolute',
+                  top: '50%',
+                  left: '50%',
+                  marginTop: -12,
+                  marginLeft: -12
+                }}
+              />
             )}
           </label>
         </div>
