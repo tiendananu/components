@@ -23,3 +23,5 @@ export const useGeolocation = () => {
   }, [])
   return { ...position, error }
 }
+
+export default useGeolocation

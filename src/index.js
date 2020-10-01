@@ -12,3 +12,6 @@ export { default as Switch } from './switch'
 export { default as Toogle } from './toggle'
 
 export { default as Geo } from './geo'
+export { default as SwipeRefresh } from './swipeRefresh'
+export { default as PassportButton } from './passportButton'
+export { default as Config } from './config'
