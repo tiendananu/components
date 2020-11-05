@@ -5,16 +5,16 @@ import { ThemeProvider } from '@material-ui/core/styles'
 import theme from './theme'
 import * as Components from 'components3'
 import Container from '@material-ui/core/Container'
-import Accordion from '@material-ui/core/Accordion'
-import AccordionSummary from '@material-ui/core/AccordionSummary'
-import AccordionDetails from '@material-ui/core/AccordionDetails'
+import Accordion from '@material-ui/core/ExpansionPanel'
+import AccordionSummary from '@material-ui/core/ExpansionPanelSummary'
+import AccordionDetails from '@material-ui/core/ExpansionPanelDetails'
 import Typography from '@material-ui/core/Typography'
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
 
 ReactDOM.render(
   <ThemeProvider theme={theme}>
     <CssBaseline />
-    <Container maxWidth='md' style={{ padding: '60px 0' }}>
+    <Container maxWidth="md" style={{ padding: '60px 0' }}>
       {Object.keys(Components).map((name) => {
         const Component = Components[name]
         return (

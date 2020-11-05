@@ -1,7 +1,7 @@
 import React from 'react'
 import Select from '@material-ui/core/Select'
 
-export default ({ i18n, inputProps, ...props }) =>
+export default ({ i18n, inputProps = {}, ...props }) =>
   i18n ? (
     <Select
       native
@@ -13,7 +13,9 @@ export default ({ i18n, inputProps, ...props }) =>
         if (i18n.language != language) i18n.changeLanguage(language)
       }}
       inputProps={{
-        style: { padding: '6px 3px 2px 7px', border: 'none' },
+        style: inputProps.style
+          ? inputProps.style
+          : { padding: '6px 3px 2px 7px', border: 'none' },
         name: 'language',
         id: 'language',
         ...inputProps

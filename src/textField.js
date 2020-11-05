@@ -17,7 +17,8 @@ export default ({
   asyncValidation,
   helpText,
   rows,
-  disabled
+  disabled,
+  ...props
 }) => (
   <TextField
     id={id}
@@ -47,5 +48,6 @@ export default ({
         )
       }
     }
+    {...props}
   />
 )
