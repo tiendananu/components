@@ -36,7 +36,7 @@ export default ({
   i18n
 }) => {
   const [loading, setLoading] = React.useState()
-
+  const inputId = `inputfile-${id}`
   const hasValue =
     (multi && get(values, `${id}.length`)) || (!multi && get(values, id))
   return (
@@ -45,7 +45,7 @@ export default ({
         style={{ display: 'none' }}
         accept="image/*"
         name={children}
-        id={loading ? '' : 'inputfile'}
+        id={loading ? '' : inputId}
         type="file"
         multiple={multi}
         onChange={async ({ target: { files } }) => {
@@ -80,7 +80,7 @@ export default ({
           </Grid>
           {multi && (
             <Grid item xs={9}>
-              <label styles={{ position: 'relative' }} htmlFor="inputfile">
+              <label styles={{ position: 'relative' }} htmlFor={inputId}>
                 <Button
                   color="secondary"
                   fullWidth
@@ -108,7 +108,7 @@ export default ({
         </Grid>
       ) : (
         <div>
-          <label styles={{ position: 'relative' }} htmlFor="inputfile">
+          <label styles={{ position: 'relative' }} htmlFor={inputId}>
             <Button
               fullWidth
               variant="outlined"
