@@ -4,7 +4,6 @@ import Button from '@material-ui/core/Button'
 import ImageIcon from '@material-ui/icons/Image'
 import AddIcon from '@material-ui/icons/Add'
 import RemoveIcon from '@material-ui/icons/Delete'
-import fetch from 'isomorphic-unfetch'
 import CircularProgress from '@material-ui/core/CircularProgress'
 import Grid from '@material-ui/core/Grid'
 
@@ -17,10 +16,13 @@ const upload = (files, cloudName) =>
       form.set('multiple', true)
       form.set('upload_preset', cloudName)
 
-      return fetch(`https://api.cloudinary.com/v1_1/${cloudName}/upload`, {
-        method: 'POST',
-        body: form
-      })
+      return import('isomorphic-unfetch')(
+        `https://api.cloudinary.com/v1_1/${cloudName}/upload`,
+        {
+          method: 'POST',
+          body: form
+        }
+      )
         .then((res) => res.json())
         .then((res) => res.secure_url)
     })
