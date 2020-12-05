@@ -3,6 +3,7 @@ import get from 'lodash/get'
 import Box from '@material-ui/core/Box'
 import Fade from '@material-ui/core/Fade'
 import { ChromePicker } from 'react-color'
+import Typography from '@material-ui/core/Typography'
 
 export default ({ id, values, children, handleChange }) => {
   const [open, setOpen] = React.useState(false)
