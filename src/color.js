@@ -5,7 +5,7 @@ import Fade from '@material-ui/core/Fade'
 import { ChromePicker } from 'react-color'
 import Typography from '@material-ui/core/Typography'
 
-export default ({ id, values, children, handleChange }) => {
+export default ({ id, values, children, handleChange, style }) => {
   const [open, setOpen] = React.useState(false)
   return (
     <Box
@@ -17,12 +17,14 @@ export default ({ id, values, children, handleChange }) => {
         <Typography>{children}</Typography>
       </Box>
       <div
-        style={{
-          background: get(values, id),
-          height: 40,
-          width: 40,
-          borderRadius: 300
-        }}
+        style={
+          style || {
+            background: get(values, id),
+            height: 40,
+            width: 40,
+            borderRadius: 300
+          }
+        }
       />
       <Fade in={open}>
         <div
