@@ -12,11 +12,13 @@ const useStyles = makeStyles((theme) => ({
       borderRight: 'none'
     }
   },
+  currencyBox: {
+    width: '100px'
+  },
   price: {
     '& > fieldset': {
       borderTopLeftRadius: 0,
-      borderBottomLeftRadius: 0,
-      borderLeft: 'none'
+      borderBottomLeftRadius: 0
     }
   },
   input: {
@@ -46,6 +48,7 @@ export default ({
         onChange={handleChange}
         onBlur={handleBlur}
         label={children}
+        className={classes.currencyBox}
         inputProps={{ className: classes.input }}
         InputProps={{
           className: classes.currency

@@ -21,6 +21,8 @@ const getInputProps = ({
 
   if (asyncValidation && get(touched, id) && !get(errors, id))
     inputProps.endAdornment = <CheckIcon />
+
+  return inputProps
 }
 
 export default ({
