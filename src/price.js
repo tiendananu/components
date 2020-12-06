@@ -24,6 +24,11 @@ export default ({
       onChange={handleChange}
       onBlur={handleBlur}
       label={children}
+      style={{
+        borderTopRightRadius: 0,
+        borderBottomRightRadius: 0,
+        borderRight: 'none'
+      }}
     />
     <TextField
       id={id}
@@ -38,6 +43,11 @@ export default ({
       onBlur={handleBlur}
       InputProps={{
         startAdornment: <InputAdornment position="start">$</InputAdornment>
+      }}
+      style={{
+        borderTopLeftRadius: 0,
+        borderBottomLeftRadius: 0,
+        borderLeft: 'none'
       }}
     />
   </div>

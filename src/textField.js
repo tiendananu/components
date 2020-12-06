@@ -4,6 +4,25 @@ import TextField from '@material-ui/core/TextField'
 import CircularProgress from '@material-ui/core/CircularProgress'
 import CheckIcon from '@material-ui/icons/Check'
 
+const getInputProps = ({
+  id,
+  errors,
+  touched,
+  endAdornment,
+  startAdornment,
+  asyncValidation
+}) => {
+  const inputProps = {}
+  if (endAdornment) inputProps.endAdornment = endAdornment
+  if (startAdornment) inputProps.startAdornment = startAdornment
+
+  if (asyncValidation && asyncValidation.loading)
+    inputProps.endAdornment = <CircularProgress size={25} thickness={7} />
+
+  if (asyncValidation && get(touched, id) && !get(errors, id))
+    inputProps.endAdornment = <CheckIcon />
+}
+
 export default ({
   type,
   id,
@@ -18,6 +37,8 @@ export default ({
   helpText,
   rows,
   disabled,
+  startAdornment,
+  endAdornment,
   ...props
 }) => (
   <TextField
@@ -39,15 +60,14 @@ export default ({
     InputLabelProps={{
       shrink: type == 'date' ? true : undefined
     }}
-    InputProps={
-      asyncValidation && {
-        endAdornment: asyncValidation.loading ? (
-          <CircularProgress size={25} thickness={7} />
-        ) : (
-          get(touched, id) && !get(errors, id) && <CheckIcon />
-        )
-      }
-    }
+    InputProps={getInputProps({
+      id,
+      errors,
+      touched,
+      asyncValidation,
+      endAdornment,
+      startAdornment
+    })}
     {...props}
   />
 )
