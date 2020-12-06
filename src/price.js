@@ -18,6 +18,9 @@ const useStyles = makeStyles((theme) => ({
       borderBottomLeftRadius: 0,
       borderLeft: 'none'
     }
+  },
+  input: {
+    textAlign: 'right'
   }
 }))
 export default ({
@@ -43,9 +46,8 @@ export default ({
         onChange={handleChange}
         onBlur={handleBlur}
         label={children}
-        inputProps={{ styles: { textAlign: 'right' } }}
+        inputProps={{ className: classes.input }}
         InputProps={{
-          startAdornment: <InputAdornment position="start">$</InputAdornment>,
           className: classes.currency
         }}
       />
@@ -61,7 +63,6 @@ export default ({
         onChange={handleChange}
         onBlur={handleBlur}
         InputProps={{
-          startAdornment: <InputAdornment position="start">$</InputAdornment>,
           className: classes.price
         }}
       />
