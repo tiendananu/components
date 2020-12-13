@@ -22,8 +22,8 @@ export default ({ id, values, children, handleChange, style }) => {
             background: get(values, id),
             height: 40,
             width: 40,
-            borderColor: '#ddd',
-            borderRadius: 300
+            borderRadius: 300,
+            border: '3px solid #ddd'
           }
         }
       />
