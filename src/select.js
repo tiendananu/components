@@ -9,7 +9,7 @@ export default ({ id, values, children, handleChange, options }) => {
 
   return (
     <FormControl fullWidth variant="outlined">
-      <InputLabel ref={inputLabel} htmlFor={id}>
+      <InputLabel shrink={true} ref={inputLabel} htmlFor={id}>
         {children}
       </InputLabel>
       <Select
