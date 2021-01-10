@@ -19,6 +19,7 @@ ReactDOM.render(
         const Component = Components[name]
         return (
           <Accordion
+            key={name}
             TransitionProps={{ mountOnEnter: true, unmountOnExit: true }}
           >
             <AccordionSummary expandIcon={<ExpandMoreIcon />}>

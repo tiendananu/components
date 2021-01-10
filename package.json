@@ -1,6 +1,6 @@
 {
   "name": "@jibadano/components",
-  "version": "0.1.42",
+  "version": "0.1.43",
   "description": "Custom Material UI React components",
   "author": "Juan Badano",
   "license": "MIT",
@@ -52,14 +52,11 @@
     "dist"
   ],
   "dependencies": {
-    "@date-io/date-fns": "^2.10.6",
     "@material-ui/core": "^4.9.11",
     "@material-ui/icons": "^4.9.1",
     "@material-ui/lab": "^4.0.0-alpha.56",
-    "@material-ui/pickers": "^3.2.10",
     "axios": "^0.21.0",
     "clsx": "^1.1.1",
-    "date-fns": "^2.16.1",
     "react-color": "^2.19.3"
   }
 }
