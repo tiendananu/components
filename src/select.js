@@ -4,7 +4,7 @@ import FormControl from '@material-ui/core/FormControl'
 import Select from '@material-ui/core/Select'
 import InputLabel from '@material-ui/core/InputLabel'
 
-export default ({ id, values, children, handleChange, options }) => {
+export default ({ id, values, children, handleChange, options, ...props }) => {
   const inputLabel = React.useRef(null)
 
   return (
@@ -22,6 +22,7 @@ export default ({ id, values, children, handleChange, options }) => {
           name: id,
           id
         }}
+        {...props}
       >
         {(options || []).map(({ name, value }) => (
           <option key={value || 'undefined'} value={value}>
