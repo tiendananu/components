@@ -1,4 +1,4 @@
-# components3
+# components
 
 > Made with create-react-library
 

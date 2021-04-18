@@ -1,6 +1,6 @@
 {
-  "short_name": "components3",
-  "name": "components3",
+  "short_name": "@jibadano/components",
+  "name": "@jibadano/components",
   "icons": [
     {
       "src": "favicon.ico",
