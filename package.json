@@ -1,6 +1,6 @@
 {
   "name": "@jibadano/components",
-  "version": "0.2.1",
+  "version": "0.2.3",
   "description": "Custom Material UI React components",
   "author": "Juan Badano",
   "license": "MIT",
@@ -57,7 +57,9 @@
     "@material-ui/lab": "^4.0.0-alpha.56",
     "axios": "^0.21.0",
     "clsx": "^1.1.1",
+    "i18next": "^19.4.4",
     "react-color": "^2.19.3",
+    "react-i18next": "^11.4.0",
     "react-material-ui-carousel": "^1.4.5",
     "react-text-mask": "^5.4.3"
   }

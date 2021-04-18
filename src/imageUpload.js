@@ -7,6 +7,7 @@ import RemoveIcon from '@material-ui/icons/Delete'
 import axios from 'axios'
 import CircularProgress from '@material-ui/core/CircularProgress'
 import Grid from '@material-ui/core/Grid'
+import { useTranslation } from 'react-i18next'
 
 // config.get('core.cloudinary.cloud_name')
 const upload = (files, cloudName) =>
@@ -25,15 +26,9 @@ const upload = (files, cloudName) =>
     })
   )
 
-export default ({
-  id,
-  values,
-  children,
-  handleChange,
-  multi,
-  cloudName,
-  i18n = { t: (v) => v }
-}) => {
+export default ({ id, values, children, handleChange, multi, cloudName }) => {
+  const { i18n } = useTranslation()
+
   const [loading, setLoading] = React.useState()
   const inputId = `inputfile-${id}`
   const hasValue =
