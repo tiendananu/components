@@ -9,6 +9,7 @@ export { default as Select } from './select'
 export { default as Slider } from './slider'
 export { default as Switch } from './switch'
 export { default as Toggle } from './toggle'
+export { default as Carousel } from './carousel'
 
 export { default as Geo } from './geo'
 export { default as SwipeRefresh } from './swipeRefresh'
