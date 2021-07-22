@@ -6,7 +6,7 @@ import VisibilityOff from '@material-ui/icons/VisibilityOff'
 import IconButton from '@material-ui/core/IconButton'
 
 export default ({
-  type,
+  type = 'password',
   id,
   touched,
   errors,
