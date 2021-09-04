@@ -60,43 +60,47 @@ export default ({ id, values, children, handleChange, multi, cloudName }) => {
       {hasValue ? (
         <Grid container>
           <Grid item xs={multi ? 3 : 12}>
-            <Button
-              color="default"
-              fullWidth
-              component="span"
-              onClick={() =>
-                handleChange({ target: { id, value: multi ? [] : null } })
-              }
-            >
-              <RemoveIcon />
-              {i18n.t('Delete')}
-            </Button>
+            <Box p={2}>
+              <Button
+                color="default"
+                fullWidth
+                component="span"
+                onClick={() =>
+                  handleChange({ target: { id, value: multi ? [] : null } })
+                }
+              >
+                <RemoveIcon />
+                {i18n.t('Delete')}
+              </Button>
+            </Box>
           </Grid>
           {multi && (
             <Grid item xs={9}>
-              <label styles={{ position: 'relative' }} htmlFor={inputId}>
-                <Button
-                  color="secondary"
-                  fullWidth
-                  component="span"
-                  disabled={loading}
-                >
-                  <AddIcon />
-                  {i18n.t('Add other')}
-                </Button>
-                {loading && (
-                  <CircularProgress
-                    size={24}
-                    styles={{
-                      position: 'absolute',
-                      top: '50%',
-                      left: '50%',
-                      marginTop: -12,
-                      marginLeft: -12
-                    }}
-                  />
-                )}
-              </label>
+              <Box p={2}>
+                <label styles={{ position: 'relative' }} htmlFor={inputId}>
+                  <Button
+                    color="secondary"
+                    fullWidth
+                    component="span"
+                    disabled={loading}
+                    endIcon={<AddIcon />}
+                  >
+                    {i18n.t('Add other')}
+                  </Button>
+                  {loading && (
+                    <CircularProgress
+                      size={24}
+                      styles={{
+                        position: 'absolute',
+                        top: '50%',
+                        left: '50%',
+                        marginTop: -12,
+                        marginLeft: -12
+                      }}
+                    />
+                  )}
+                </label>
+              </Box>
             </Grid>
           )}
         </Grid>
@@ -109,8 +113,8 @@ export default ({ id, values, children, handleChange, multi, cloudName }) => {
               style={{ minHeight: 250 }}
               component="span"
               disabled={loading}
+              startIcon={<ImageIcon />}
             >
-              <ImageIcon />
               {i18n.t('Add an image')}
             </Button>
             {loading && (
