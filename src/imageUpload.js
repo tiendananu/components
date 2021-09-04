@@ -8,8 +8,8 @@ import axios from 'axios'
 import CircularProgress from '@material-ui/core/CircularProgress'
 import Grid from '@material-ui/core/Grid'
 import { useTranslation } from 'react-i18next'
+import Box from '@material-ui/core/Box'
 
-// config.get('core.cloudinary.cloud_name')
 const upload = (files, cloudName) =>
   Promise.all(
     files.map((file) => {
@@ -79,7 +79,7 @@ export default ({ id, values, children, handleChange, multi, cloudName }) => {
               <Box p={2}>
                 <label styles={{ position: 'relative' }} htmlFor={inputId}>
                   <Button
-                    color="secondary"
+                    color="primary"
                     fullWidth
                     component="span"
                     disabled={loading}
