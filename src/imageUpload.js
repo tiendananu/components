@@ -26,7 +26,15 @@ const upload = (files, cloudName) =>
     })
   )
 
-export default ({ id, values, children, handleChange, multi, cloudName }) => {
+export default ({
+  id,
+  values,
+  children,
+  handleChange,
+  multi,
+  cloudName,
+  buttonHeight = 250
+}) => {
   const { i18n } = useTranslation()
 
   const [loading, setLoading] = React.useState()
@@ -110,7 +118,7 @@ export default ({ id, values, children, handleChange, multi, cloudName }) => {
             <Button
               fullWidth
               variant="outlined"
-              style={{ minHeight: 250 }}
+              style={{ minHeight: buttonHeight }}
               component="span"
               disabled={loading}
               startIcon={<ImageIcon />}
