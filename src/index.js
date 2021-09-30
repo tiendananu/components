@@ -1,5 +1,6 @@
 export { default as TextField } from './textField'
 export { default as ImageUpload } from './imageUpload'
+export { default as ImageCrop } from './imageCrop'
 export { default as Checkbox } from './checkbox'
 export { default as Language } from './language'
 export { default as ListField } from './listField'

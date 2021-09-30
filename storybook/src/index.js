@@ -29,7 +29,7 @@ const Menu = () => {
           <Tab key={name} label={name} />
         ))}
       </Tabs>
-      <Container maxWidth="sm">
+      <Container maxWidth="md">
         <Box
           display="flex"
           width="100%"
