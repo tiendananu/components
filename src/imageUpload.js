@@ -128,7 +128,7 @@ const ImageUpload = ({
   const hasValue =
     (multi && get(values, `${id}.length`)) || (!multi && get(values, id))
 
-  let images = values[id] || []
+  let images = get(values, id) || []
   if (!(images instanceof Array)) images = [images]
 
   return (
