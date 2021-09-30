@@ -129,7 +129,7 @@ const ImageUpload = ({
     (multi && get(values, `${id}.length`)) || (!multi && get(values, id))
 
   let images = values[id] || []
-  if (!images instanceof Array) images = [images]
+  if (!(images instanceof Array)) images = [images]
 
   return (
     <Box width={fullWidth ? '100%' : 'auto'}>
