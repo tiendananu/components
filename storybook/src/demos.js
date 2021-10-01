@@ -94,8 +94,10 @@ export const TextFieldStory = () => {
 
 export const ImageUploadStory = () => {
   const [values, setValues] = React.useState({
-    id:
+    id: [
+      'https://res.cloudinary.com/dfeyswrng/image/upload/v1631224045/fhi5bd56i565viwdj523.webp',
       'https://res.cloudinary.com/dfeyswrng/image/upload/v1631224045/fhi5bd56i565viwdj523.webp'
+    ]
   })
   return (
     <ImageUpload
@@ -104,6 +106,7 @@ export const ImageUploadStory = () => {
       cloudName="dfeyswrng"
       id="id"
       preview
+      multi
       crop={{ aspect: 4 / 3 }}
       handleChange={(e) =>
         setValues((values) => ({ ...values, id: e.target.value }))

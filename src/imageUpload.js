@@ -10,12 +10,13 @@ import CropIcon from '@material-ui/icons/Crop'
 import CloseIcon from '@material-ui/icons/Close'
 import DoneIcon from '@material-ui/icons/Done'
 import Crop from 'react-easy-crop'
+import ResetIcon from '@material-ui/icons/Restore'
 
 import axios from 'axios'
 import CircularProgress from '@material-ui/core/CircularProgress'
 import Avatar from '@material-ui/core/Avatar'
 import Box from '@material-ui/core/Box'
-import Carousel from 'react-material-ui-carousel'
+import Fade from '@material-ui/core/Fade'
 
 const upload = (files, cloudName) =>
   Promise.all(
@@ -37,7 +38,8 @@ const ImageEdit = ({
   cropConfig,
   image,
   onRemove = () => {},
-  onChange = () => {}
+  onChange = () => {},
+  onReset = () => {}
 }) => {
   const [crop, setCrop] = React.useState({ x: 0, y: 0 })
   const [zoom, setZoom] = React.useState(1)
@@ -84,6 +86,11 @@ const ImageEdit = ({
                 <CropIcon />
               </IconButton>
             )}
+            {cropConfig && (
+              <IconButton onClick={() => onReset()}>
+                <ResetIcon />
+              </IconButton>
+            )}
           </React.Fragment>
         )}
         {cropping && (
@@ -124,6 +131,7 @@ const ImageUpload = ({
 }) => {
   const inputId = `inputfile-${id}`
   const [loading, setLoading] = React.useState()
+  const [nav, setNav] = React.useState(0)
 
   const hasValue =
     (multi && get(values, `${id}.length`)) || (!multi && get(values, id))
@@ -133,44 +141,50 @@ const ImageUpload = ({
 
   return (
     <Box width={fullWidth ? '100%' : 'auto'}>
-      {preview && hasValue && (
-        <Carousel
-          indicators={false}
-          cycleNavigation={false}
-          navButtonsAlwaysInvisible={Boolean(images.length <= 1)}
-          autoPlay={false}
-        >
-          {images.map((src, i) => (
-            <Box
-              key={src}
-              display="flex"
-              justifyContent="center"
-              alignItems="center"
-            >
-              <ImageEdit
-                image={src}
-                onChange={(cropResult) => {
-                  images[i] = src.replace(
-                    /upload\//,
-                    `upload/c_crop,h_${cropResult.height},w_${cropResult.width},x_${cropResult.x},y_${cropResult.y}/`
-                  )
+      <Box height="80vh" width="100%" position="relative">
+        {preview &&
+          hasValue &&
+          images.map((src, i) => (
+            <Fade key={src} in={nav == i} unmountOnExit mountOnEnter>
+              <Box
+                position="absolute"
+                top={0}
+                left={0}
+                width="100%"
+                height="100%"
+              >
+                <ImageEdit
+                  image={src}
+                  onReset={() => {
+                    images[i] = src.replace(/upload\/c_crop,.*\//, 'upload/')
 
-                  handleChange({
-                    target: { id, value: multi ? images : images[0] }
-                  })
-                }}
-                onRemove={() => {
-                  images.splice(i, 1)
-                  handleChange({
-                    target: { id, value: multi ? images : images[0] }
-                  })
-                }}
-                cropConfig={crop}
-              />
-            </Box>
+                    handleChange({
+                      target: { id, value: multi ? images : images[0] }
+                    })
+                  }}
+                  onChange={(cropResult) => {
+                    images[i] = src.replace(
+                      /upload\//,
+                      `upload/c_crop,h_${cropResult.height},w_${cropResult.width},x_${cropResult.x},y_${cropResult.y}/`
+                    )
+
+                    handleChange({
+                      target: { id, value: multi ? images : images[0] }
+                    })
+                  }}
+                  onRemove={() => {
+                    images.splice(i, 1)
+                    handleChange({
+                      target: { id, value: multi ? images : images[0] }
+                    })
+                  }}
+                  cropConfig={crop}
+                />
+              </Box>
+            </Fade>
           ))}
-        </Carousel>
-      )}
+      </Box>
+
       <input
         style={{ display: 'none' }}
         accept="image/*"
@@ -195,19 +209,19 @@ const ImageUpload = ({
       {hasValue ? (
         <Box display="flex">
           <Box py={2} display="flex" flexGrow={1}>
-            {images.map((image) => (
-              <Box pr={2}>
-                <Avatar variant="rounded" src={image}></Avatar>
+            {images.map((image, i) => (
+              <Box key={image} pr={2}>
+                <Avatar variant="rounded">
+                  <IconButton onClick={() => setNav(i)}>
+                    <Avatar variant="rounded" src={image} />
+                  </IconButton>
+                </Avatar>
               </Box>
             ))}
             <Box display="flex" justifyContent="center" alignItems="center">
               <Avatar variant="rounded">
                 <label htmlFor={inputId}>
-                  <IconButton
-                    component="span"
-                    color="primary"
-                    disabled={loading}
-                  >
+                  <IconButton component="span" disabled={loading}>
                     <AddIcon />
                   </IconButton>
                 </label>
