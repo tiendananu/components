@@ -141,10 +141,9 @@ const ImageUpload = ({
 
   return (
     <Box width={fullWidth ? '100%' : 'auto'}>
-      <Box height="80vh" width="100%" position="relative">
-        {preview &&
-          hasValue &&
-          images.map((src, i) => (
+      {preview && hasValue && (
+        <Box height="80vh" width="100%" position="relative">
+          {images.map((src, i) => (
             <Fade key={src} in={nav == i} unmountOnExit mountOnEnter>
               <Box
                 position="absolute"
@@ -183,8 +182,8 @@ const ImageUpload = ({
               </Box>
             </Fade>
           ))}
-      </Box>
-
+        </Box>
+      )}
       <input
         style={{ display: 'none' }}
         accept="image/*"
