@@ -10,7 +10,7 @@ import CropIcon from '@material-ui/icons/Crop'
 import CloseIcon from '@material-ui/icons/Close'
 import DoneIcon from '@material-ui/icons/Done'
 import Crop from 'react-easy-crop'
-import ResetIcon from '@material-ui/icons/Restore'
+import ResetIcon from '@material-ui/icons/Refresh'
 
 import axios from 'axios'
 import CircularProgress from '@material-ui/core/CircularProgress'
@@ -47,7 +47,14 @@ const ImageEdit = ({
   const [cropping, setCropping] = React.useState()
 
   return (
-    <Box width="100%" height="80vh" display="flex" alignItems="flex-end">
+    <Box
+      width="100%"
+      maxHeight="80vh"
+      height="100%"
+      display="flex"
+      alignItems="flex-end"
+      justifyContent="center"
+    >
       {Boolean(cropConfig && cropping) ? (
         <Crop
           image={image}
@@ -59,14 +66,18 @@ const ImageEdit = ({
           {...cropConfig}
         />
       ) : (
-        <img
-          style={{
-            marginLeft: 'auto',
-            marginRight: 'auto'
-          }}
-          height="100%"
-          src={image}
-        />
+        <Box display="flex" alignItems="center" justifyContent="center">
+          <img
+            style={{
+              marginLeft: 'auto',
+              marginRight: 'auto',
+              maxHeight: '80vh'
+            }}
+            width="100%"
+            height="auto"
+            src={image}
+          />
+        </Box>
       )}
       <Box
         p={2}
@@ -151,6 +162,9 @@ const ImageUpload = ({
                 left={0}
                 width="100%"
                 height="100%"
+                display="flex"
+                alignItems="center"
+                style={{ background: '#222' }}
               >
                 <ImageEdit
                   image={src}
