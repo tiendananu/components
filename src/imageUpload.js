@@ -66,7 +66,12 @@ const ImageEdit = ({
           {...cropConfig}
         />
       ) : (
-        <Box display="flex" alignItems="center" justifyContent="center">
+        <Box
+          display="flex"
+          height="100%"
+          alignItems="center"
+          justifyContent="center"
+        >
           <img
             style={{
               marginLeft: 'auto',
@@ -220,38 +225,40 @@ const ImageUpload = ({
         }}
       />
       {hasValue ? (
-        <Box display="flex">
-          <Box py={2} display="flex" flexGrow={1}>
-            {images.map((image, i) => (
-              <Box key={image} pr={2}>
-                <Avatar variant="rounded">
-                  <IconButton onClick={() => setNav(i)}>
-                    <Avatar variant="rounded" src={image} />
-                  </IconButton>
-                </Avatar>
-              </Box>
-            ))}
-            <Box display="flex" justifyContent="center" alignItems="center">
-              <Avatar variant="rounded">
-                <label htmlFor={inputId}>
-                  <IconButton component="span" disabled={loading}>
-                    <AddIcon />
-                  </IconButton>
-                </label>
-              </Avatar>
-              {loading && (
-                <Box
-                  display="flex"
-                  position="absolute"
-                  justifyContent="center"
-                  alignItems="center"
-                >
-                  <CircularProgress thickness={6} size={24} />
+        Boolean(multi) && (
+          <Box display="flex">
+            <Box py={2} display="flex" flexGrow={1}>
+              {images.map((image, i) => (
+                <Box key={image} pr={2}>
+                  <Avatar variant="rounded">
+                    <IconButton onClick={() => setNav(i)}>
+                      <Avatar variant="rounded" src={image} />
+                    </IconButton>
+                  </Avatar>
                 </Box>
-              )}
+              ))}
+              <Box display="flex" justifyContent="center" alignItems="center">
+                <Avatar variant="rounded">
+                  <label htmlFor={inputId}>
+                    <IconButton component="span" disabled={loading}>
+                      <AddIcon />
+                    </IconButton>
+                  </label>
+                </Avatar>
+                {loading && (
+                  <Box
+                    display="flex"
+                    position="absolute"
+                    justifyContent="center"
+                    alignItems="center"
+                  >
+                    <CircularProgress thickness={6} size={24} />
+                  </Box>
+                )}
+              </Box>
             </Box>
           </Box>
-        </Box>
+        )
       ) : (
         <div>
           <label htmlFor={inputId}>
