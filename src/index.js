@@ -13,6 +13,8 @@ export { default as Toggle } from './toggle'
 export { default as Carousel } from './carousel'
 export { default as ImageButton } from './imageButton'
 export { default as Background } from './background'
+export { BackgroundProvider } from './background'
+
 export { default as FadeOnScreen } from './fadeOnScreen'
 export { default as SideMenu } from './sideMenu'
 
