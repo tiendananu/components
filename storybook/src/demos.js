@@ -7,8 +7,11 @@ import {
   TextField,
   ImageUpload,
   ImageCrop,
-  Carousel
+  Carousel,
+  Language
 } from 'components'
+
+export const LanguageStory = () => <Language />
 
 export const CheckboxStory = () => {
   const [values, setValues] = React.useState()
