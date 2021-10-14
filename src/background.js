@@ -1,5 +1,5 @@
 import React from 'react'
-import { Parallax } from 'react-scroll-parallax'
+import { Parallax, ParallaxProvider } from 'react-scroll-parallax'
 import { makeStyles } from '@material-ui/core/styles'
 
 const useStyles = makeStyles(() => ({
@@ -27,6 +27,8 @@ const useStyles = makeStyles(() => ({
     backgroundImage: `url(${image})`
   })
 }))
+
+export const BackgroundProvider = ParallaxProvider
 
 const Background = ({ overlay, image, blur, height = '100%', children }) => {
   const classes = useStyles({ overlay, height, image, blur })
