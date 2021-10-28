@@ -1,5 +1,5 @@
 import React from 'react'
-import Select from '@material-ui/core/Select'
+import Select from '@mui/material/Select'
 import { useTranslation } from 'react-i18next'
 
 export default ({ inputProps = {}, ...props }) => {

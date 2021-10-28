@@ -1,6 +1,6 @@
 import React from 'react'
-import IconButton from '@material-ui/core/IconButton'
-import Link from '@material-ui/core/Link'
+import IconButton from '@mui/material/IconButton'
+import Link from '@mui/material/Link'
 
 const images = {
   google:

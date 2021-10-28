@@ -1,10 +1,10 @@
 import React from 'react'
 
-import Dialog from '@material-ui/core/Dialog'
-import Box from '@material-ui/core/Box'
-import IconButton from '@material-ui/core/IconButton'
-import CloseIcon from '@material-ui/icons/Close'
-import CropIcon from '@material-ui/icons/Crop'
+import Dialog from '@mui/material/Dialog'
+import Box from '@mui/material/Box'
+import IconButton from '@mui/material/IconButton'
+import CloseIcon from '@mui/icons-material/Close'
+import CropIcon from '@mui/icons-material/Crop'
 
 import Crop from 'react-easy-crop'
 

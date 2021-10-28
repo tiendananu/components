@@ -1,8 +1,8 @@
 import React from 'react'
 import get from 'lodash/get'
-import TextField from '@material-ui/core/TextField'
-import CircularProgress from '@material-ui/core/CircularProgress'
-import CheckIcon from '@material-ui/icons/Check'
+import TextField from '@mui/material/TextField'
+import CircularProgress from '@mui/material/CircularProgress'
+import CheckIcon from '@mui/icons-material/Check'
 
 const getInputProps = ({
   id,

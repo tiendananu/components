@@ -1,9 +1,9 @@
 import React from 'react'
 import get from 'lodash/get'
-import TextField from '@material-ui/core/TextField'
-import VisibilityOn from '@material-ui/icons/Visibility'
-import VisibilityOff from '@material-ui/icons/VisibilityOff'
-import IconButton from '@material-ui/core/IconButton'
+import TextField from '@mui/material/TextField'
+import VisibilityOn from '@mui/icons-material/Visibility'
+import VisibilityOff from '@mui/icons-material/VisibilityOff'
+import IconButton from '@mui/material/IconButton'
 
 export default ({
   type = 'password',

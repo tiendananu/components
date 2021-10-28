@@ -1,8 +1,8 @@
 import React from 'react'
 import get from 'lodash/get'
-import TextField from '@material-ui/core/TextField'
-import Chip from '@material-ui/core/Chip'
-import Autocomplete from '@material-ui/lab/Autocomplete'
+import TextField from '@mui/material/TextField'
+import Chip from '@mui/material/Chip'
+import Autocomplete from '@mui/material/Autocomplete'
 
 export default ({
   type,

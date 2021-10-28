@@ -1,6 +1,6 @@
 import React from 'react'
-import SwipeableDrawer from '@material-ui/core/SwipeableDrawer'
-import RefreshIcon from '@material-ui/icons/Refresh'
+import SwipeableDrawer from '@mui/material/SwipeableDrawer'
+import RefreshIcon from '@mui/icons-material/Refresh'
 
 export default ({ onRefresh = () => {} }) => {
   return (

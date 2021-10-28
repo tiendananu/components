@@ -1,9 +1,9 @@
 import React from 'react'
 import get from 'lodash/get'
-import Box from '@material-ui/core/Box'
-import Fade from '@material-ui/core/Fade'
+import Box from '@mui/material/Box'
+import Fade from '@mui/material/Fade'
 import { ChromePicker } from 'react-color'
-import Typography from '@material-ui/core/Typography'
+import Typography from '@mui/material/Typography'
 
 export default ({ id, values, children, handleChange, style }) => {
   const [open, setOpen] = React.useState(false)

@@ -1,9 +1,9 @@
 import React from 'react'
-import SwipeableDrawer from '@material-ui/core/SwipeableDrawer'
-import Drawer from '@material-ui/core/Drawer'
-import Button from '@material-ui/core/Button'
-import Box from '@material-ui/core/Box'
-import useMediaQuery from '@material-ui/core/useMediaQuery'
+import SwipeableDrawer from '@mui/material/SwipeableDrawer'
+import Drawer from '@mui/material/Drawer'
+import Button from '@mui/material/Button'
+import Box from '@mui/material/Box'
+import useMediaQuery from '@mui/material/useMediaQuery'
 
 const SideMenu = ({ children, swipeable, title = 'Menu', defaultOpen }) => {
   const [open, setOpen] = React.useState(defaultOpen)

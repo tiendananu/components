@@ -1,8 +1,8 @@
 import React from 'react'
 import get from 'lodash/get'
-import TextField from '@material-ui/core/TextField'
-import { makeStyles } from '@material-ui/core/styles'
-import InputAdornment from '@material-ui/core/InputAdornment'
+import TextField from '@mui/material/TextField'
+import { makeStyles } from '@mui/styles'
+import InputAdornment from '@mui/material/InputAdornment'
 
 const useStyles = makeStyles((theme) => ({
   currency: {

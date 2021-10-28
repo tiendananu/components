@@ -1,6 +1,6 @@
 import React from 'react'
 import { Parallax, ParallaxProvider } from 'react-scroll-parallax'
-import { makeStyles } from '@material-ui/core/styles'
+import { makeStyles } from '@mui/styles'
 
 const useStyles = makeStyles(() => ({
   root: ({ height }) => ({

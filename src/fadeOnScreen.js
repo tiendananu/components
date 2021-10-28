@@ -1,5 +1,5 @@
 import React from 'react'
-import Fade from '@material-ui/core/Fade'
+import Fade from '@mui/material/Fade'
 
 const useOnScreen = (ref, delay = 0) => {
   const [isIntersecting, setIntersecting] = React.useState(false)

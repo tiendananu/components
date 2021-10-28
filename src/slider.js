@@ -1,8 +1,8 @@
 import React from 'react'
 import get from 'lodash/get'
-import FormControlLabel from '@material-ui/core/FormControlLabel'
-import Slider from '@material-ui/core/Slider'
-import FormControl from '@material-ui/core/FormControl'
+import FormControlLabel from '@mui/material/FormControlLabel'
+import Slider from '@mui/material/Slider'
+import FormControl from '@mui/material/FormControl'
 
 export default ({
   id,
