@@ -8,7 +8,8 @@ import {
   ImageUpload,
   ImageCrop,
   Carousel,
-  Language
+  Language,
+  MaskedTextField
 } from 'components'
 
 export const LanguageStory = () => <Language />
@@ -92,6 +93,37 @@ export const TextFieldStory = () => {
     >
       Label
     </TextField>
+  )
+}
+
+export const MaskedTextFieldStory = () => {
+  const [values, setValues] = React.useState()
+  return (
+    <MaskedTextField
+      id="id"
+      values={values}
+      mask={[
+        '(',
+        /[1-9]/,
+        /\d/,
+        /\d/,
+        ')',
+        ' ',
+        /\d/,
+        /\d/,
+        /\d/,
+        '-',
+        /\d/,
+        /\d/,
+        /\d/,
+        /\d/
+      ]}
+      handleChange={(_, value) =>
+        setValues((values) => ({ ...values, id: value }))
+      }
+    >
+      Label
+    </MaskedTextField>
   )
 }
 
